@@ -20,7 +20,7 @@ public class Server {
             // Do some work
             Thread.sleep(1000L);
 
-            final byte[] reply = "World".getBytes();
+            final byte[] reply = ("Reply " + new String(request)).getBytes();
             responder.send(reply, 0);
         }
     }

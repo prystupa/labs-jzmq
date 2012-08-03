@@ -2,6 +2,8 @@ package com.prystupa;
 
 import org.zeromq.ZMQ;
 
+import java.util.Random;
+
 /**
  * Hello world!
  */
@@ -21,11 +23,11 @@ public class Client {
         for (int i = 0; i < 10; i++) {
             // Create a Hello message
             // Ensure that the last byte of our message is 0
-            String requestString = "Hello";
+            String requestString = "" + new Random().nextInt(100);
             byte[] request = requestString.getBytes();
 
             // Send the message
-            System.out.println("Sending request " + i + "...");
+            System.out.println("Sending request " + i + "[" + requestString + "]" + "...");
             socket.send(request, 0);
 
             // Get the reply
